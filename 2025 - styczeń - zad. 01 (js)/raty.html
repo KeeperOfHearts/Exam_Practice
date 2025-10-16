@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kursy komputerowe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="baner.png" alt="kursy komputerowe">
+    </header>
+    <menu>
+        <a href="index.html">Strona główna</a>
+        <a href="raty.html">Koszt rat</a>
+        <a href="https://moje-szkolenia.pl/">Nasz partner</a>
+    </menu>
+    <main>
+        <h3>Oblicz miesięczną ratę</h3>
+        <form action="">
+            <input class="kontrolki" type="checkbox" name="" id="kursReact"><label for="">Kurs React.js</label>
+            <br>
+            <input class="kontrolki" type="checkbox" name="" id="kursJS"><label for="">Kurs JavaScript</label>
+            <br>
+            <label class="kontrolki" for="lrat">Liczba rat: </label>
+            <input class="kontrolki" type="number" name="lrat" id="lrat">
+            <br>
+            <select class="kontrolki" name="" id="miasto">
+                <option class="kontrolki" value="Warszawa">Warszawa</option>
+                <option class="kontrolki"  value="Katowice">Katowice</option>
+                <option class="kontrolki" value="Gdańsk">Gdańsk</option>
+            </select>
+            <br>
+            <button class="kontrolki" type="button" onclick="oblicz()">Oblicz</button>
+            <p id="wyswietlacz"></p>
+        </form>
+    </main>
+    <footer>
+        <p>Autor strony: 00000000</p>
+    </footer>
+    <script>
+        let kontrolkaKurstReact = document.querySelector("#kursReact")
+        let kontrolkaKurstJS = document.querySelector("#kursJS")
+        let kontrolkaLiczbaRat = document.querySelector("#lrat")
+        let kontrolkaMiasto = document.querySelector("#miasto")
+
+        let wyswietlaczTekstu = document.querySelector("#wyswietlacz")
+
+        function oblicz() {
+            let miasto = kontrolkaMiasto.value
+            let kwota = 0
+            if (kontrolkaKurstJS.checked) {
+                kwota += 3000
+            }
+            if (kontrolkaKurstReact.checked) {
+                kwota += 5000
+            }
+            let liczba = kontrolkaLiczbaRat.value
+            let rata = kwota/liczba
+
+            wyswietlaczTekstu.innerHTML = `Kurs odbędzie się w ${miasto}. Koszt całkowity: ${kwota} zł. Płacisz ${liczba} rat po ${rata} zł`
+
+
+        }
+    </script>
+</body>
+</html>
